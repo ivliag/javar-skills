@@ -1,0 +1,16 @@
+{
+  "name": "javar-skills",
+  "owner": {
+    "name": "Ivan Liagushkin"
+  },
+  "plugins": [
+    {
+      "name": "javar-skills",
+      "description": "Personal skills collection including YouTube video summarizer and more",
+      "version": "1.0.0",
+      "source": "./",
+      "category": "productivity",
+      "license": "MIT"
+    }
+  ]
+}

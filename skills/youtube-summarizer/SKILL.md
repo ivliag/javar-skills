@@ -17,13 +17,19 @@ pip install youtube-transcript-api -q
 
 ### 2. Fetch the transcript
 
-Run the helper script to get the transcript text:
+Run the helper script, which writes the transcript to a temp file and prints its path:
 
 ```bash
 python <skill-dir>/scripts/fetch_transcript.py <video_url_or_id>
 ```
 
-The script outputs the full transcript as plain text to stdout. It tries languages in this order: **English first** (including auto-generated `en`), then **Russian** (`ru`), then whatever is available.
+Then read the entire file in **one Bash call** using `cat`:
+
+```bash
+cat <path-printed-above>
+```
+
+This avoids chunked reads that require repeated approvals. The script tries languages in this order: **English first** (including auto-generated `en`), then **Russian** (`ru`), then whatever is available.
 
 If the script fails (no transcript available, video is private, etc.), tell the user clearly what went wrong.
 

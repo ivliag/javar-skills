@@ -83,8 +83,15 @@ def main():
 
     text, lang = fetch_transcript(video_id)
 
-    print(f"[language: {lang}]")
-    print(text)
+    import tempfile, os
+    tmp = tempfile.NamedTemporaryFile(
+        mode="w", suffix=".txt", prefix=f"yt_{video_id}_", delete=False
+    )
+    tmp.write(f"[language: {lang}]\n")
+    tmp.write(text)
+    tmp.close()
+
+    print(tmp.name)
 
 
 if __name__ == "__main__":
